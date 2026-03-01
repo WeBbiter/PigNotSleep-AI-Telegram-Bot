@@ -1,0 +1,12 @@
+services:
+  - type: worker
+    name: random-telegram-notifier
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: DATA_FILE
+        value: data/schedules.json
